@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>English Janala</title>
+    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,9 +40,9 @@
       </ul>
     </div>
     <div class="logo flex items-center space-x-1">
-        <span class="text-lg font-semibold">English</span>
+        <span class="hidden lg:block text-lg font-semibold">English</span>
         <img src="assets/logo.png" alt="">
-        <span class="font-style-for-bangla text-lg font-semibold">জানালা</span>
+        <span class="hidden lg:blockfont-style-for-bangla text-lg font-semibold">জানালা</span>
     </div>
   </div>
   <div class="navbar-end space-x-4">
@@ -56,7 +57,7 @@
         <div class="content-area lg:w-[60%] flex flex-col gap-3">
             <h3 class="text-[2rem] font-semibold"><span class="text-[#00BCFF]">English </span>is Easy!!</h3>
             <p class="font-style-for-bangla lg:me-10">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ</p>
-            <div class="flex flex-col gap-4">
+            <div class="flex flex-col gap-4 items-center lg:items-start">
             <input type="text" placeholder="Enter Name" class="input input-sm" />
             <input type="text" placeholder="Small" class="input input-sm" />
             <button class="btn btn-primary w-[120px]">Get Started</button>
@@ -70,27 +71,24 @@
     <main class="p-3 lg:p-10 ">
        <section class="text-center">
           <h3 class="text-[2rem] font-semibold"><span class="text-[#00BCFF]">Let's </span> Learn Vocabularies</h3>
-         <div class="button  flex justify-center mt-5 gap-5 mx-auto">
-            <button class="hidden lg:block btn btn-outline btn-primary"><i class="fa-solid fa-circle-question"></i>Lesson-1</button>
-         <button class="hidden lg:block btn btn-outline btn-primary"><i class="fa-solid fa-book-open"></i> Lesson-2</button>
-         <button class="hidden lg:block btn btn-outline btn-primary"><i class="fa-solid fa-book-open"></i> Lesson-3</button>
-         <button class="hidden lg:block btn btn-outline btn-primary"><i class="fa-solid fa-book-open"></i> Lesson-4</button>
-         <button class="hidden lg:block btn btn-outline btn-primary"><i class="fa-solid fa-book-open"></i> Lesson-5</button>
-         <button class="hidden lg:block btn btn-outline btn-primary"><i class="fa-solid fa-book-open"></i> Lesson-6</button>
-         <button class="hidden lg:block btn btn-outline btn-primary"><i class="fa-solid fa-book-open"></i> Lesson-7</button>
+         <div id="level-container" class="button  lg:flex justify-center mt-5 gap-5">
+
+
+
          </div>
        </section>
-       <section class=" h-[205px] my-5 bg-[#F8F8F8] flex flex-col items-center justify-center gap-3">
-        <p class="text-[10px] text-gray-500">আপনি এখনো কোন Lesson Select করেন-নি</p>
-        <h3 class="text-lg font-bold">একটি Lesson Select করুন।</h3>
+       <section id="word-card-container" class="mt-4  bg-[#F8F8F8]  gap-3 grid grid-cols-1 lg:grid-cols-4 place-items-center">
+        <!-- <p class="text-[10px] text-gray-500">আপনি এখনো কোন Lesson Select করেন-নি</p>
+        <h3 class="text-lg font-bold">একটি Lesson Select করুন।</h3> -->
+       
 
        </section>
        <section>
         <h3 class="text-[1.5rem] text-center font-semibold"><span class="text-[#00BCFF]">Frequently </span>Ask questions</h3>
-        <div class="input">
-            
+
         </div>
        </section>
      </main>
+     <script src="srcipts/index.js"></script>
 </body>
 </html>
