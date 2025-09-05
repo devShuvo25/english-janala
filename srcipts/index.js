@@ -40,6 +40,7 @@ const activeClass = () => {
         btnLesson.classList.remove('active');
     });
 }
+// show synonym
 
 
 
@@ -63,7 +64,15 @@ const disDtl = (detailData) => {
     {word: 'Eager', meaning: 'আগ্রহী', pronunciation: 'ইগার', 
     level: 1, 
     sentence: 'The kids were eager to open their gifts.', …}
+
     */
+   const syns = detailData.synonyms;
+   const synHtml = (syns.map(syn => `<span class="btn bg-[#def2f9] rounded-md  border-[1px] border-gray-300 me-2">${syn}</span>`)).join(' ');
+
+   
+   console.log(synHtml)
+
+   
     modalDetails.innerHTML = `
       <div class="bg-white w-[530px] h-[350px] p-8 rounded-lg">
     <h1 class="text-2xl font-bold mb-3">${detailData.word}</h1>
@@ -77,9 +86,7 @@ const disDtl = (detailData) => {
   </div>
   <div class="mb-3">
     <p class="mb-2">সমার্থক শব্দগুলো</p>
-    <span class="bg-[#def2f9] rounded-md p-1 border-[1px] border-gray-300 me-2">Enthustic</span>
-    <span class="bg-[#def2f9] rounded-md p-1 border-[1px] border-gray-300 me-2">Enthustic</span>
-    <span class="bg-[#def2f9] rounded-md p-1 border-[1px] border-gray-300">Enthustic</span>
+    <div>${synHtml}</div>
   </div>
   <div class=" flex ">
     <form method="dialog">
@@ -89,10 +96,6 @@ const disDtl = (detailData) => {
   </div>`
   modal.append(modalDetails);
 }
-
-
-
-
 
 const displayWords = (words) => {
     const wordCardContainer = document.getElementById('word-card-container');
