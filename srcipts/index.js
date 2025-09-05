@@ -81,7 +81,7 @@ const disDtl = (detailData) => {
     <span class="bg-[#def2f9] rounded-md p-1 border-[1px] border-gray-300 me-2">Enthustic</span>
     <span class="bg-[#def2f9] rounded-md p-1 border-[1px] border-gray-300">Enthustic</span>
   </div>
-  <div class="text-right">
+  <div class=" flex ">
     <form method="dialog">
       <button class="btn px-8 bg-[#422AD5] text-white mt-4">Ok</button>
     </form>
