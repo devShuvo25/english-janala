@@ -56,23 +56,11 @@ fetch(urlDetail)
 } );
 }
 const disDtl = (detailData) => {
-    console.log(detailData);
     const modal = document.getElementById('my_modal_5');
     modal.innerHTML = ''
     const modalDetails = document.createElement('div');
-    /*
-    {word: 'Eager', meaning: 'আগ্রহী', pronunciation: 'ইগার', 
-    level: 1, 
-    sentence: 'The kids were eager to open their gifts.', …}
-
-    */
    const syns = detailData.synonyms;
    const synHtml = (syns.map(syn => `<span class="btn bg-[#def2f9] rounded-md  border-[1px] border-gray-300 me-2">${syn}</span>`)).join(' ');
-
-   
-   console.log(synHtml)
-
-   
     modalDetails.innerHTML = `
       <div class="bg-white w-[530px] h-[350px] p-8 rounded-lg">
     <h1 class="text-2xl font-bold mb-3">${detailData.word}</h1>
