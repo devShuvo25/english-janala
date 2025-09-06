@@ -139,37 +139,27 @@ document.getElementById('btn-search').addEventListener('click', () => {
   .then((res) => res.json())
   .then((data) => loadSearchData(data.data))
 const loadSearchData = (data) =>{
-  data.forEach(everyData => {
-    if(everyData.word.toLowerCase() === inputValue){
-      console.log(everyData)
-      const wordCardContainer = document.getElementById('word-card-container');
-      wordCardContainer.classList.remove('grid','h-[300px]','lg:h-[400px]');
+   const filterWord = data.filter(word => {
+
+    return word.word.toLowerCase().includes(inputValue);
+  })
+  if(filterWord.length !== 0){
+    displayWords(filterWord);
+  }
+  else{
+     const wordCardContainer = document.getElementById('word-card-container');
+     const card = document.createElement('div');
+    wordCardContainer.classList.add('grid','h-[300px]','lg:h-[400px]');
     wordCardContainer.innerText = '';
-      const card = document.createElement('div');
-            card.classList.add('w-[100%]','lg:w-[50%]','mx-auto','p-4')
-             card.innerHTML = `<div class="lg:px-5 w-[100%] p-4 bg-white rounded-[4px] space-x-2">
-            <div class="text-center p-3">
-            <h4 class="font-bold text-[18px] ">${everyData.word}</h4>
-            <p class="text-[8px] my-2 text-gray-600">
-            ${everyData.pronunciation}
-            </p>
-            <p class="text-gray-600 font-semibold text-[14px]">${everyData.meaning}</p>
-            </div>
-            <div class="flex justify-between ">
-                <i onclick="my_modal_5.showModal(); loadDetails()" id="level-" class=" cursor-pointer fa-solid fa-circle-info bg-[#9cddf4] p-1.5 text-[12px] rounded-[4px]"></i>
-                <i onclick="showModal()" class="cursor-pointer  fa-solid fa-volume-high bg-[rgb(156,221,244)] p-1.5 text-[12px] rounded-[4px]"></i>
-            </div>
+    wordCardContainer.classList.remove('h-[400px]');
+        card.classList.add('col-span-4');
+        card.innerHTML = `
+                <div class="text-center col-span-4 p-5">
+                <i class="fa-solid fa-triangle-exclamation text-[30px]"></i>
+        <p class="text-[10px] text-gray-500 my-3">দুঃখিত!কোনো Vocabullery পাওয়া যায়নি</p>
+        <h3 class="text-lg font-bold">সঠিক ভাবে চেষ্টা করুন</h3>
         </div>`
         wordCardContainer.append(card);
-
-    }
-    else{
-
-    }
-    
-    
-  });
-
-}
+  }
+ }
 })
-
