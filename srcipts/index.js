@@ -101,7 +101,7 @@ const  displayWords = async (words) => {
             words.forEach(word => {
         const card = document.createElement('div');
             card.classList.add('w-[100%]')
-             card.innerHTML = `<div class="lg:px-5 w-[100%] bg-white rounded-[4px] space-x-2">
+             card.innerHTML = `<div class="lg:px-5 w-[100%] bg-white rounded-[4px] space-x-2 p-4 bg-base-100  shadow-sm">
             <div class="text-center p-3">
             <h4 class="font-bold text-[18px] ">${word.word}</h4>
             <p class="text-[8px] my-2 text-gray-600">${word.pronunciation}.</p>
