@@ -28,7 +28,7 @@ lebelContainer.innerText = '';
     const btnDiv = document.createElement('div');
     btnDiv.innerHTML = `
     <button  onclick="loadWords(${lesson.level_no})"
-     id="btn-lesson-${lesson.level_no}"  class=" btn btn-outline btn-primary lesson">
+     id="btn-lesson-${lesson.level_no}"  class=" btn btn-outline btn-info lesson">
      <i class="fa-solid fa-circle-question "></i> Lesson-${lesson.level_no}</button>
     `;
      //   2-> append */
