@@ -92,15 +92,16 @@ const disDtl = (detailData) => {
   modal.append(modalDetails);
 }
 const  displayWords = async (words) => {
-  await new Promise(resolve => setTimeout(resolve, 5000));
+  await new Promise(resolve => setTimeout(resolve, 500));
     const wordCardContainer = document.getElementById('word-card-container');
+    wordCardContainer.classList.add('grid','h-[300px]','lg:h-[400px]');
     wordCardContainer.innerText = '';
     const card = document.createElement('div');
     if(words.length !== 0){
             words.forEach(word => {
         const card = document.createElement('div');
             card.classList.add('w-[100%]')
-             card.innerHTML = `<div class="lg:px-5 w-[100%] bg-white rounded-[4px] p-5  space-x-2">
+             card.innerHTML = `<div class="lg:px-5 w-[100%] bg-white rounded-[4px] space-x-2">
             <div class="text-center p-3">
             <h4 class="font-bold text-[18px] ">${word.word}</h4>
             <p class="text-[8px] my-2 text-gray-600">${word.pronunciation}.</p>
@@ -127,4 +128,48 @@ const  displayWords = async (words) => {
       }
       manageSpiner(false);
 }
-setTimeout(displayWords , 4000);
+let name = 'SHUVO';
+console.log(name.toLowerCase())
+// search implementations
+
+document.getElementById('btn-search').addEventListener('click', () => {
+  const input = document.getElementById('input-search');
+  const inputValue = input.value.trim().toLowerCase();
+  fetch('https://openapi.programming-hero.com/api/words/all')
+  .then((res) => res.json())
+  .then((data) => loadSearchData(data.data))
+const loadSearchData = (data) =>{
+  data.forEach(everyData => {
+    if(everyData.word.toLowerCase() === inputValue){
+      console.log(everyData)
+      const wordCardContainer = document.getElementById('word-card-container');
+      wordCardContainer.classList.remove('grid','h-[300px]','lg:h-[400px]');
+    wordCardContainer.innerText = '';
+      const card = document.createElement('div');
+            card.classList.add('w-[100%]','lg:w-[50%]','mx-auto','p-4')
+             card.innerHTML = `<div class="lg:px-5 w-[100%] p-4 bg-white rounded-[4px] space-x-2">
+            <div class="text-center p-3">
+            <h4 class="font-bold text-[18px] ">${everyData.word}</h4>
+            <p class="text-[8px] my-2 text-gray-600">
+            ${everyData.pronunciation}
+            </p>
+            <p class="text-gray-600 font-semibold text-[14px]">${everyData.meaning}</p>
+            </div>
+            <div class="flex justify-between ">
+                <i onclick="my_modal_5.showModal(); loadDetails()" id="level-" class=" cursor-pointer fa-solid fa-circle-info bg-[#9cddf4] p-1.5 text-[12px] rounded-[4px]"></i>
+                <i onclick="showModal()" class="cursor-pointer  fa-solid fa-volume-high bg-[rgb(156,221,244)] p-1.5 text-[12px] rounded-[4px]"></i>
+            </div>
+        </div>`
+        wordCardContainer.append(card);
+
+    }
+    else{
+
+    }
+    
+    
+  });
+
+}
+})
+

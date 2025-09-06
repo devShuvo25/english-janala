@@ -17,7 +17,7 @@
     <!-- stylesheet  -->
     <link rel="stylesheet" href="styles/style.css">
 </head>
-<body class="">
+<body class="max-w-[1440px] mx-auto">
     <header>
         <div class="navbar bg-[#badeff] -100 shadow-sm">
   <div class="navbar-start">
@@ -67,6 +67,23 @@
          <div id="level-container" class=" w-[100%] flex flex-col lg:flex-row justify-center button mt-5  gap-5">
          </div>
        </section>
+        <!-- search input -->
+  <div class="join mt-15 text-center flex justify-center">
+  <div>
+    <label class="input validator join-item">
+          <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+        </g>
+      </svg>
+      <input id="input-search" type="email" placeholder="Serch Vocabullary" required />
+    </label>
+  </div>
+  <button id="btn-search" class="btn btn-primary join-item">Search</button>
+</div>
+
+<section id="search-word" class="bg-[#F8F8F8]">
+
+</section>
        <section class=" flex justify-center items-center m-20">
         <span id="spiner" class="hidden loading loading-bars loading-xl"></span>
        </section>
