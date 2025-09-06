@@ -1,3 +1,15 @@
+const manageSpiner = (status) => {
+  const spiner = document.getElementById('spiner');
+  const content = document.getElementById('word-card-container');
+  if(status === true){
+    spiner.classList.remove('hidden');
+    content.classList.add('hidden');
+  }
+  else{
+        spiner.classList.add('hidden');
+    content.classList.remove('hidden');
+  }
+}
 const loadData = () => {
     fetch('https://openapi.programming-hero.com/api/levels/all') //promise of res
     .then((res) => res.json()) //promise of json data
@@ -22,8 +34,10 @@ lebelContainer.innerText = '';
      //   2-> append */
      lebelContainer.append(btnDiv);
   });
+  manageSpiner(false);
 }
 const loadWords = (id) => {
+  manageSpiner(true);
 const url = `https://openapi.programming-hero.com/api/level/${id}`;
 fetch(url)
 .then((res) => res.json()) //promise of res
@@ -40,13 +54,6 @@ const activeClass = () => {
         btnLesson.classList.remove('active');
     });
 }
-// show synonym
-
-
-
-
-
-
 const loadDetails= (id) => {
 const urlDetail = `https://openapi.programming-hero.com/api/word/${id}`
 fetch(urlDetail)
@@ -84,8 +91,8 @@ const disDtl = (detailData) => {
   </div>`
   modal.append(modalDetails);
 }
-
-const displayWords = (words) => {
+const  displayWords = async (words) => {
+  await new Promise(resolve => setTimeout(resolve, 5000));
     const wordCardContainer = document.getElementById('word-card-container');
     wordCardContainer.innerText = '';
     const card = document.createElement('div');
@@ -106,7 +113,6 @@ const displayWords = (words) => {
         </div>`
         wordCardContainer.append(card); 
     });
-        
     }
     else{
         wordCardContainer.classList.remove('h-[400px]');
@@ -116,12 +122,9 @@ const displayWords = (words) => {
                 <i class="fa-solid fa-triangle-exclamation text-[30px]"></i>
         <p class="text-[10px] text-gray-500 my-3">এই Lesson এ কোনো Vocabullery যুক্ত করা হয়নি</p>
         <h3 class="text-lg font-bold">পরবর্তী Lesson এ যান</h3>
-        </div>
-        `
+        </div>`
         wordCardContainer.append(card);
-    }
-
-
-
+      }
+      manageSpiner(false);
 }
-
+setTimeout(displayWords , 4000);

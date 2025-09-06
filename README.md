@@ -100,7 +100,6 @@ https://openapi.programming-hero.com/api/words/all
 
 - [ ] Create functionality for voice pronunciation of vocabulary words
 - [ ] Use below function and implement on clicking sound icon
-
 ```js
 function pronounceWord(word) {
   const utterance = new SpeechSynthesisUtterance(word);
